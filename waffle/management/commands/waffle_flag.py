@@ -32,7 +32,6 @@ class Command(BaseCommand):
         parser.add_argument(
             '--percent', '-p',
             action='store',
-            type='int',
             dest='percent',
             help=('Roll out the flag for a certain percentage of users. Takes a number between 0.0 and 100.0')
         )
