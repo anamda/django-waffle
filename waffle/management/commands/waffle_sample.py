@@ -8,16 +8,17 @@ from waffle.models import Sample
 
 
 class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
-        make_option('-l', '--list',
+    def add_arguments(self, parser):
+        parser.add_argument('-l', '--list',
             action='store_true', dest='list_sample', default=False,
-            help='List existing samples.'),
-        make_option('--create',
+            help='List existing samples.'
+        )
+        parser.add_argument('--create',
             action='store_true',
             dest='create',
             default=False,
-            help="If the sample doesn't exist, create it."),
-    )
+            help="If the sample doesn't exist, create it."
+        )
 
     help = 'Change percentage of a sample.'
     args = '<sample_name> <percent>'
